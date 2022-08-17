@@ -1,6 +1,7 @@
-import Expenses from "./components/Expenses";
+import React from "react";
+import Expenses from "./components/Expenses/Expenses";
 
-function App(props) {
+function App() {
 
   const expenses = [
     {
@@ -29,6 +30,13 @@ function App(props) {
       date: new Date(2020, 11, 27)
     },
   ];
+
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2', {}, 'Lets get started!'),
+  //   React.createElement(Expenses, { DUMMUY_EXPENSES: expenses })
+  // )
 
   return (
     <div>
