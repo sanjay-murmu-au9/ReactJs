@@ -12,33 +12,48 @@ const Expenses = (props) => {
     const filterChangeHandler = (selectedYear) => {
         setFilteredYear(selectedYear)
     }
+    const filteredExpenses = props.DUMMUY_EXPENSES.filter((expense) => {
+        return expense.date.getFullYear().toString() === filteredYear;
+    });
+
+    let expensesContent = <p>No expenses found.</p>;
+
+    if (filteredExpenses.length > 0) {
+        expensesContent = filteredExpenses.map((expense) => (
+            <ExpenseItem
+                key={expense.id}
+                title={expense.title}
+                amount={expense.amount}
+                date={expense.date}
+            />
+        ))
+    }
 
     return (
         <Card className="expenses">
-            <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
-            <ExpenseItem
-                title={props.DUMMUY_EXPENSES[0].title}
-                amount={props.DUMMUY_EXPENSES[0].amount}
-                date={props.DUMMUY_EXPENSES[0].date}
+            <ExpenseFilter
+                selected={filteredYear}
+                onChangeFilter={filterChangeHandler}
+            />
 
-            />
-            <ExpenseItem
-                title={props.DUMMUY_EXPENSES[1].title}
-                amount={props.DUMMUY_EXPENSES[1].amount}
-                date={props.DUMMUY_EXPENSES[1].date}
 
-            />
-            <ExpenseItem
-                title={props.DUMMUY_EXPENSES[2].title}
-                amount={props.DUMMUY_EXPENSES[2].amount}
-                date={props.DUMMUY_EXPENSES[2].date}
+            {/* {filteredExpenses.length === 0 && <p> No expense found!</p>}
+            {filteredExpenses.length > 0 &&
+                filteredExpenses.map((expense) =>
+                (
+                    <ExpenseItem
+                        key={expense.id}
+                        title={expense.title}
+                        amount={expense.amount}
+                        date={expense.date}
+                    />
+                )
+                )} */}
 
-            />
-            <ExpenseItem
-                title={props.DUMMUY_EXPENSES[3].title}
-                amount={props.DUMMUY_EXPENSES[3].amount}
-                date={props.DUMMUY_EXPENSES[3].date}
-            />
+            {/* //or */}
+
+            {expensesContent}
+
         </Card>
     )
 
