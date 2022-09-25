@@ -1,70 +1,308 @@
-# Getting Started with Create React App
+Next-Gen JavaScript :- Array function , let const etc; which allow us to code clean;
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Let:- variable values
+Const :- Constant Values;
 
-## Available Scripts
+# let is new var;
+const is for constant, which you only assign once and never change, cannot re-assign;
 
-In the project directory, you can run:
+link:- jsbin.com
 
-### `npm start`
+// Arrow funtion
+const multiply = (number)=>{
+	return number * 2;
+}
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+console.log(multiply(2)) ===> 4
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+or
+// normal function
+function myFnc(){
+ ...
+}
 
-### `npm test`
+const Myfun =()=>{
+...
+}
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+function printMyName(name){
+console.log(name)
+}
 
-### `npm run build`
+printMyName() // ----> undefined;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-----------------
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+function printMyName(name){
+console.log(name)
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+printMyName('sanjay') // -----> sanjay
 
-### `npm run eject`
+<<<<<<<<<<<<<<<<<
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+const printMyName=(name)=>{
+console.log(name)
+}
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+printMyName('sanjay') // sanjay;
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+or
+const printMyName= name=>{ // can be removed parameter for existly one argument;
+console.log(name)
+}
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+printMyName('sanjay')  // ----> sanjay
 
-## Learn More
+or
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+const printMyName= ()=>{ 
+console.log('sanjay')
+}
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+printMyName();  // ----> sanjay
 
-### Code Splitting
+or
+const printMyName= (name,age)=>{ 
+console.log(name,age)
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+printMyName('sanjay',22);  // ----> sanjay, 22
 
-### Analyzing the Bundle Size
+const multiply = (number)=>{
+ return number * 2;
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+console.log(multiply(2)); // 4
 
-### Making a Progressive Web App
+or
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+const multiply = number => number * 2; 
+console.log(multiply(2)) //==> 4
 
-### Advanced Configuration
+###############################################
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Exports & Imports (Modules)
+1. person.js // file
+const person={
+  name: 'Max'
+}
 
-### Deployment
+export default person;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. Utility.js
+export const clean =()=>{...}
+or
+export const baseData = 10;
 
-### `npm run build` fails to minify
+# Importing in app.js;
+  import person from './person.js';
+  import prs from './person.js'
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ import {smth} from './utility.js' // exect name;
+ import {smth as Smth} from './utility.js'  // elis name
+ import * as bundle from './utility.js';  // exporting all;
+
+
+
+
+// Classes --- // are Blueprint for Object;
+
+class Person {
+	name = "Max" ---> Property || Properties are like "varibles attached to classes/objects"
+	call = ()=>{...} --> Methods || Methods are like "functions attached to classes/objects";	
+    } 
+
+const myPerson = new Person()
+myPerson.call()
+console.log(myPerson.name)
+
+class also support Inhertance;
+class Person extends Master;
+
+
+## Exapmle ##
+class Human {
+  constructor(){
+	this.gender = "male";
+   }
+
+   printGender(){
+	console.log(this.gender);
+   }
+}
+
+class Person extends Human {
+   constructor(){
+   super(); ---------------> is to inhertance with extends keyword
+   this.name = "Sanjay";	
+}
+
+ printMyName(){
+   console.log(this.name);	
+  }
+
+}
+
+const person = new Person();
+person.printMyName(); ---> Sanjay
+person.printGender(); ----> male
+
+-----------------------------xxxx----------------------------;
+# Classes, Properties & Methods
+# Properties are like "variables attached to classes/objects";
+# Methods are like "functions attached to classes/objects";
+
+ES6
+# Property;
+constructor(){ 
+  this.myProperty = "value"
+}
+
+ES7
+myProperty = "value"
+
+#Methods:-
+	ES6;
+myMethod(){...}
+
+ES7
+myMethod =()=>{}
+
+----------ES7 Next Gen Func -----------------
+
+class Human {
+    gender = "male" 
+
+   printGender=()=>{
+	console.log(this.gender);
+   }
+}
+
+class Person extends Human {
+	name = "Max";
+	//gender = "female";
+	
+	printMyName = () => {
+	   console.log(this.name);
+	}
+ }
+
+const person = new Person();
+person.printMyName();  ---> Max
+person.printGender();  ----> female // male
+
+=========X X X ===========
+Spread & Reat Operator
+
+# ...(3 dots) -> called operators
+
+# Spread Operator:-used for splits array elemets or object properties; || spread takes out all elements all properties and distrubes them in a new array or object;
+
+Example:- const newArr = [...oldArray, 1,2] // for arr element;
+	    const newObject = {...oldObject,newProp:5} // for obj property
+
+Example:-
+	const numbers = [1,2,3];
+	const newNumbers = [...numbers, 4]; 
+	console.log(newNumbers); //---> [1,2,3,4]
+
+const newNumbers = [...numbers, 4]; 
+console.log(numbers,4) // ===> [[1,2,3],4];
+
+
+//with obj;
+const newObject = {...oldObject, newProp:5} || if there remain newProp: 5 will be over written by "new newProp:5;"
+
+const person = {
+   name:'Sanjay',
+};
+
+const newPerson = {
+    ...person,
+    age:24	
+}
+
+console.log(newPerson); --->{age: 24, Name:sanjay}
+
+
+===================XXXX==========================
+
+# Rest:- Used to merge a list of function arguments into an array; || unlimited list of arguments.
+	
+function sortArgs(...args){
+	return args.sort()
+}
+
+const filter = (...args) => {
+    return args.filter(elm => elm === 1);
+}
+
+console.log(filter(1,2,3)); ---> [1]
+
+================================XXXX=============================
+
+# Destructuring
+-> Easily extract array elements or object properties and store them in variables; || it allow you to pull out single elements or properties and store them in variables for arrays;
+
+Array destructuring
+ [a,b] = ["Hello","Max"]
+ console.log(a) --> Hello
+ console.log(b) // Max
+
+or
+
+const numbers = [1,2,3];
+[num1, ,num3] = numbers;
+console.log(num1,num3); ---> 1,3
+
+Object destructuring
+{name} = {name:'Max',age:28} || target exact name property;
+console.log(name)// --> Max
+console.log(age) //---> undefined
+
+
+===================XXX=========================
+
+# Reference and Primitive Type;
+# Primitives:- boolean, string, Number;
+
+# Reference type:- {},[]
+
+const number = 1;
+const num2 = number; ---> 1; it copied the value; (numbers, strings, booleans) are called primitive type whenever you re-assign or you store, it will copy the value;
+
+ 
+object and arr are reference types:-
+const person = {
+  name:'Max'
+};
+
+const secondPerson = person;
+person.name = 'Manu';
+//console.log(secondPerson); ---> name: "Max"; // here obj. is stored in memory where else in const person we store a pointer to that place in memory; 
+console.log(secondPerson); // name:'Manu';
+
+# Real Copy;
+
+const person ={
+   name:'Max'
+}
+
+const secPerson = {
+	...person
+   };
+
+person.name="Manu";
+console.log(secPerson) //------> name:"Max"
+
+
+
+## Arr Func ########
+const numbers = [1,2,3];
+
+const doubleNumArray = numbers.map((num) =>{
+   return num * 2;
+});
+
+console.log(doubleNumArray) --> [2,4,6]
